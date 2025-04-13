@@ -1,0 +1,27 @@
+{
+  "name": "learn-node",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/abdullahwebdev9176/learn-node.git"
+  },
+  "author": "Muhammad Abdullah",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/abdullahwebdev9176/learn-node/issues"
+  },
+  "homepage": "https://github.com/abdullahwebdev9176/learn-node#readme",
+  "dependencies": {
+    "colors": "^1.4.0",
+    "dotenv": "^16.5.0",
+    "express": "^5.1.0",
+    "mongoose": "^8.13.2",
+    "morgan": "^1.10.0",
+    "nodemon": "^3.1.9"
+  }
+}
