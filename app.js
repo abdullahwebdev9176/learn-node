@@ -5,6 +5,7 @@ const colors = require('colors');
 const path = require('path');
 const hbs = require('hbs');
 const router = require('./routes/index');
+const adminRouter = require('./routes/admin');
 const expHbs = require('express-handlebars');
 
 dotenv.config();
@@ -13,7 +14,7 @@ const staticPath = path.join(__dirname, "public");
 const partialsPath = path.join(__dirname, "views/partials");
 const layoutPath = path.join(__dirname, 'views/layouts')
 
-console.log(layoutPath)
+// console.log(layoutPath)
 
 app.use(express.json());
 app.use(express.static(staticPath));
@@ -28,6 +29,7 @@ app.engine('hbs', expHbs.engine({
 app.set('view engine', 'hbs');
 hbs.registerPartials(partialsPath);
 
+app.use('/admin', adminRouter);
 app.use('/', router);
 
 
