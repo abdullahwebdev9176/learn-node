@@ -1,39 +1,37 @@
 const express = require('express');
 const app = express();
 const dotenv = require('dotenv');
-const colors = require('colors');
-const path = require('path');
 const hbs = require('hbs');
-const router = require('./routes/index');
-const adminRouter = require('./routes/admin');
-const expHbs = require('express-handlebars');
+const path = require('path');
+const frontendRoutes = require('./routes/index');
+const hbsHelpers = require('./helpers/hbs-helpers');
+const { engine } = require('express-handlebars');
 
 dotenv.config();
+const port = process.env.PORT || 3000;
 
-const staticPath = path.join(__dirname, "public");
-const partialsPath = path.join(__dirname, "views/partials");
-const layoutPath = path.join(__dirname, 'views/layouts')
+const staticPath = path.join(__dirname, '/public');
+const viewsPath = path.join(__dirname, 'views');               
+const frontendPagesPath = path.join(viewsPath, 'frontend-pages'); 
+const partialsPath = path.join(viewsPath, 'partials');
+const layoutsPath = path.join(viewsPath, 'layouts');
 
-// console.log(layoutPath)
-
-app.use(express.json());
-app.use(express.static(staticPath));
-
-app.engine('hbs', expHbs.engine({
-    extname: 'hbs',
-    defaultLayout: 'layout',
-    layoutsDir: layoutPath,
-    partialsDir: partialsPath
-}))
+app.engine('hbs', engine({
+    extname: '.hbs',
+    defaultLayout: 'layout',        
+    layoutsDir: layoutsPath,
+    partialsDir: partialsPath,
+    helpers: hbsHelpers       
+}));
 
 app.set('view engine', 'hbs');
-hbs.registerPartials(partialsPath);
-
-app.use('/admin', adminRouter);
-app.use('/', router);
+app.set('views', frontendPagesPath);
 
 
-const PORT = process.env.PORT || 9000;
-app.listen(PORT, () => {
-    console.log(`Server is running at http://localhost:${PORT}`.bgMagenta.bgWhite);
+app.use(express.static(staticPath));
+app.use('/', frontendRoutes);
+
+
+app.listen(port, () => {
+    console.log(`Server running at: http://localhost:${port}`);
 });
