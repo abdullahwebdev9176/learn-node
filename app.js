@@ -6,6 +6,8 @@ const path = require('path');
 const frontendRoutes = require('./routes/index');
 const hbsHelpers = require('./helpers/hbs-helpers');
 const { engine } = require('express-handlebars');
+const db = require('./config/db');
+db();
 
 dotenv.config();
 const port = process.env.PORT || 3000;
