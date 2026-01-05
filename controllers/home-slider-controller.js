@@ -12,8 +12,6 @@ exports.createPage = (req, res) => {
 
 exports.store = async (req, res) => {
     try {
-        console.log('Req body:', req.body);
-        console.log('Req file:', JSON.stringify(req.file, null, 2));
 
         const data = {
             title: req.body.title,
@@ -22,9 +20,9 @@ exports.store = async (req, res) => {
         };
 
         const slider = await HomeSlider.create(data);
-        console.log('Created Slider:', slider);
 
-        res.send('Slider Created'); // for testing
+        res.redirect('/admin/home-slider');
+       
     } catch (err) {
         console.error('Store Error:', err);
         res.status(500).send('Internal Server Error');
