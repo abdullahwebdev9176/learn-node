@@ -5,7 +5,7 @@ const router = express.Router();
 
 router.get('/', async (req, res) => {
 
-    const slider =  await HomeSliderModel.find({});
+    const slider =  await HomeSliderModel.find({}).lean();
 
     console.log(slider);
 
@@ -15,10 +15,6 @@ router.get('/', async (req, res) => {
         sliders: slider
     })
 })
-
-
-
-
 
 
 module.exports = router;
