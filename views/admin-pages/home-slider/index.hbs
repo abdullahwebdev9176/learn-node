@@ -1,0 +1,22 @@
+
+
+<h2>Home Slider List</h2>
+
+<a href="/admin/home-slider/create">Add Slider</a>
+
+<table border="1">
+    <tr>
+        <th>Title</th>
+        <th>Action</th>
+    </tr>
+
+    {{#each sliders}}
+    <tr>
+        <td>{{this.title}}</td>
+        <td>
+            <a href="/admin/home-slider/edit/{{this._id}}">Edit</a>
+            <a href="/admin/home-slider/delete/{{this._id}}">Delete</a>
+        </td>
+    </tr>
+    {{/each}}
+</table>
