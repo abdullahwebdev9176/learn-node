@@ -8,7 +8,7 @@ router.get('/home-slider', homeSlider.index);
 router.get('/home-slider/create', homeSlider.createPage);
 router.post('/home-slider/store', upload.single('image'), homeSlider.store);
 router.get('/home-slider/edit/:id', homeSlider.editPage);
-router.post('/home-slider/update/:id', homeSlider.update);
+router.post('/home-slider/update/:id',upload.single('image'), homeSlider.update);
 router.get('/home-slider/delete/:id', homeSlider.delete);
 
 module.exports = router;

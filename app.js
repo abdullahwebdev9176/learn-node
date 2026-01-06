@@ -36,6 +36,8 @@ app.use(express.static(staticPath));
 app.use('/', frontendRoutes);
 app.use('/admin', adminRoutes);
 
+app.use(express.urlencoded({ extended: true }));
+app.use(express.json());
 
 app.listen(port, () => {
     console.log(`Server running at: http://localhost:${port}`);

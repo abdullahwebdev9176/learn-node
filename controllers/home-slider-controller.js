@@ -33,13 +33,20 @@ exports.store = async (req, res) => {
 
 
 exports.editPage = async (req, res) => {
-    const slider = await HomeSlider.findById(req.params.id);
+    const slider = await HomeSlider.findById(req.params.id).lean();
     res.render('home-slider/edit', { slider });
 };
 
 
 exports.update = async (req, res) => {
-    await HomeSlider.findByIdAndUpdate(req.params.id, req.body);
+
+    const data = {
+        title: req.body.title,
+        link: req.body.link,
+        image: req.file ? req.file.path : null
+    };
+
+    await HomeSlider.findByIdAndUpdate(req.params.id, data);
     res.redirect('/admin/home-slider');
 };
 
