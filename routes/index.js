@@ -7,9 +7,14 @@ router.get('/', async (req, res) => {
 
     const slider =  await HomeSliderModel.find({}).lean();
 
+    let style = "/assets/css/frontend/style.css";
+    let script = "/assets/js/frontend/script.js";
+
     res.render('home', {
         title: "Home Page",
-        sliders: slider
+        sliders: slider,
+        style: style,
+        script: script
     })
 })
 
