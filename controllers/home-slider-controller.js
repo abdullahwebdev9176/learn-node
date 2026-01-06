@@ -1,9 +1,8 @@
-const HomeSliderModel = require('../models/Home-slider-model');
 const HomeSlider = require('../models/Home-slider-model');
 
 
 exports.index = async (req, res) => {
-    const sliders = await HomeSliderModel.find({}).lean();
+    const sliders = await HomeSlider.find({}).lean();
     res.render('home-slider/index', { sliders });
 };
 
