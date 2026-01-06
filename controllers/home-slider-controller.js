@@ -1,8 +1,9 @@
+const HomeSliderModel = require('../models/Home-slider-model');
 const HomeSlider = require('../models/Home-slider-model');
 
 
 exports.index = async (req, res) => {
-    const sliders = await HomeSlider.find();
+    const sliders = await HomeSliderModel.find({}).lean();
     res.render('home-slider/index', { sliders });
 };
 
@@ -22,7 +23,7 @@ exports.store = async (req, res) => {
         const slider = await HomeSlider.create(data);
 
         res.redirect('/admin/home-slider');
-       
+
     } catch (err) {
         console.error('Store Error:', err);
         res.status(500).send('Internal Server Error');
