@@ -16,3 +16,16 @@
     height: 500px;
     object-fit: cover;
 }
+
+.boats-image{
+    position: relative;
+    padding-top: 45%;
+}
+.boats-image img{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 250px;
+    object-fit: cover;
+}

@@ -8,6 +8,7 @@ const adminRoutes = require('./routes/admin');
 const hbsHelpers = require('./helpers/hbs-helpers');
 const { engine } = require('express-handlebars');
 const db = require('./config/db');
+const boatsRoutes = require('./routes/boat-feed');
 db();
 
 dotenv.config();
@@ -38,6 +39,7 @@ app.use('/admin', adminRoutes);
 
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
+app.use('/api', boatsRoutes);
 
 app.listen(port, () => {
     console.log(`Server running at: http://localhost:${port}`);
