@@ -39,10 +39,11 @@ router.get('/boats-feed', async (req, res) => {
 
                 const allImages = Object.values(boat.inventory_images || {});
                 const firstImage = allImages[0] || "";
+                const boatTitle = `${boat.year || ""} ${boat.make || ""} ${boat.model || ""}`.trim();
 
             const boatData = {
                 feedId,
-                boatTitle: boat.Boat || "",
+                boatTitle: boatTitle,
                 condition: boat.condition || "",
                 make: boat.make || "",
                 model: boat.model || "",

@@ -10,7 +10,12 @@
             </div>
             <div class="boat-card-body">
                 <h3 class="boat-card-title"><a href="">{{this.boatTitle}}</a></h3>
-                <p class="boat-card-price">Price: {{this.salePrice}}</p>
+                
+                {{#if this.price}}
+                <p class="boat-card-price">Price: {{this.price}}</p>
+                {{else}}
+                <p class="boat-card-price">Price: Call For Price</p>
+                {{/if}}
             </div>
         </div>
 
