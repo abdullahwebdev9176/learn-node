@@ -49,4 +49,20 @@ router.get('/boats-for-sale', async (req, res) => {
     })
 });
 
+router.get('/boats-details/:id', async (req, res) => {
+
+    const { id } = req.params;
+
+    if(id.endsWith('.map')) return res.status(404).send("Not Found");
+
+    const boats = await BoatModel.findById(id).lean();
+
+    res.render('boat-details', {
+        title: "Boat Details",
+        boats: boats,
+        style: getStyles(),
+        script: getScripts()
+    })
+});
+
 module.exports = router;
