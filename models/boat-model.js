@@ -1,29 +1,25 @@
 const mongoose = require('mongoose');
 
 const boatSchema = new mongoose.Schema({
-    feedId: { type: String, unique: true }, 
+    feedId: { type: String, unique: true, required: true },
     boatTitle: String,
-    newUsed: String,
+    condition: String,
     make: String,
     model: String,
     year: String,
     length: String,
     description: String,
-    featuredUnit: String,
-    salePrice: String,
+    price: String,
     msrp: String,
-    discount: String,
     class: String,
     location: String,
-    hours: String,
-    hullType: String,
-    fuelType: String,
-    engineMake: String,
+    enginehours: String,
+    hull_Id: String,
+    fuel_type: String,
     engineModel: String,
-    engineHorsepower: String,
-    power: String,
     beam: String,
     productImage: String,
+    boat_gallery: [String],
 }, { timestamps: true });
 
 module.exports = mongoose.model('Boat', boatSchema);

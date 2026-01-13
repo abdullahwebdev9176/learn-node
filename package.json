@@ -17,6 +17,7 @@
   },
   "homepage": "https://github.com/abdullahwebdev9176/learn-node#readme",
   "dependencies": {
+    "axios": "^1.13.2",
     "cloudinary": "^2.8.0",
     "colors": "^1.4.0",
     "dotenv": "^16.5.0",
@@ -27,6 +28,7 @@
     "morgan": "^1.10.0",
     "multer": "^2.0.2",
     "multer-storage-cloudinary": "^4.0.0",
-    "nodemon": "^3.1.9"
+    "nodemon": "^3.1.9",
+    "xml2js": "^0.6.2"
   }
 }
